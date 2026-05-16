@@ -29,6 +29,11 @@ streamlined alternatives.
 - `systemd-sysvcompat` is not required for systems that standardize on modern `systemctl` workflows.
 - `licenses` is omitted to save disk space in an unofficial package.
 
+> [!CAUTION]
+> ### Do Not Shutdown The system
+>
+> Ensure you have added `init=/lib/systemd/systemd` to kernel command line before shutdown.
+
 > [!WARNING]
 > ### Compatibility Notes
 >

@@ -3,6 +3,7 @@ pkgbase = base-tm
 	pkgver = 1
 	pkgrel = 1
 	url = https://codeberg.org/nathawat/base-tm
+	install = base-tm.install
 	arch = x86_64
 	license = Apache-2.0
 	depends = filesystem

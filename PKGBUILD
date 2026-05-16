@@ -7,6 +7,7 @@ pkgdesc='Tiny but modern package set to define a basic Arch Linux installation'
 url='https://codeberg.org/nathawat/base-tm'
 arch=('x86_64')
 license=('Apache-2.0')
+install=base-tm.install
 provides=('base' 'coreutils' 'findutils')
 conflicts=('base' 'coreutils' 'findutils')
 depends=(
