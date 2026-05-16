@@ -17,7 +17,7 @@ streamlined alternatives.
 
 - `base` uses GNU `coreutils` and `findutils`.
 - `base` uses `grep`, but `base-tm` uses `ripgrep` with a [shim](https://codeberg.org/nathawat/rg-grep-shim) translation layer for the `grep` command. <!-- rumdl-disable-line MD013 -->
-- `base` includes `iputils` and `iproute2`; removed in `base-tm` since it's not ued by `iwd` and `systemd-networkd`.
+- `base` includes `iputils` and `iproute2`; removed in `base-tm` since it's not used by `iwd` and `systemd-networkd`.
 - `systemd-sysvcompat` removed; use latest `systemctl` command.
 - `licenses` removed since this is an unofficial package to reduce disk footprint.
 
