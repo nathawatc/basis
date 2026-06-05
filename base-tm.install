@@ -1,4 +1,4 @@
 post_install() {
-    printf '\033[1;41m!! DO NOT SHUTDOWN THE SYSTEM !!\033[0m\n'
-    printf '\033[1;31mEnsure you have added `init=/lib/systemd/systemd` to kernel command line before shutdown.\033[0m\n'
+	printf '\033[1;41m!! DO NOT SHUTDOWN THE SYSTEM !!\033[0m\n'
+	printf '\033[1;31mEnsure you have added `init=/lib/systemd/systemd` to kernel command line before shutdown.\033[0m\n'
 }

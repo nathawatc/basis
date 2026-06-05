@@ -15,7 +15,7 @@ streamlined alternatives.
 
 ## Differences from `base`
 
-- `base` uses GNU `coreutils` `findutils` and `sed`.
+- `base` uses GNU `coreutils` `findutils`.
 - `base` uses `grep`, but `base-tm` uses `ripgrep` with a [shim](https://codeberg.org/nathawat/rg-grep-shim) translation layer for the `grep` command. <!-- rumdl-disable-line MD013 -->
 - `base` includes `iputils` and `iproute2`; removed in `base-tm` since it's not used by `iwd` and `systemd-networkd`.
 - `systemd-sysvcompat` removed; use latest `systemctl` command.
@@ -30,11 +30,13 @@ streamlined alternatives.
 - `licenses` is omitted to save disk space in an unofficial package.
 
 > [!CAUTION]
+>
 > ### Do Not Shutdown The system
 >
 > Ensure you have added `init=/lib/systemd/systemd` to kernel command line before shutdown.
 
 > [!WARNING]
+>
 > ### Compatibility Notes
 >
 > - If you depend on `grep`-specific behavior, confirm the shim behavior meets your scripts needs.
