@@ -16,8 +16,8 @@ modern shim packages, removes unused defaults, and keeps `base` compatibility vi
 
 | `base`               | `base-tm`                                                                       |
 | -------------------- | ------------------------------------------------------------------------------- |
-| `coreutils`          | `uutils-coreutils` from `uutils-coreutils-shim`                                 |
-| `findutils`          | `uutils-findutils` from `uutils-findutils-shim`                                 |
+| `coreutils`          | `uutils-coreutils` with symlinks                                                |
+| `findutils`          | `uutils-findutils` with symlinks                                                |
 | `grep`               | `rg-grep`, ripgrep with [grep shim](https://codeberg.org/nathawat/rg-grep-shim) |
 | `iputils`            | Removed                                                                         |
 | `iproute2`           | Removed                                                                         |
@@ -26,7 +26,7 @@ modern shim packages, removes unused defaults, and keeps `base` compatibility vi
 
 ### Rationale
 
-- `uutils-coreutils-shim` and `uutils-findutils-shim` reduce GNU dependency while keeping command compatibility.
+- `uutils-coreutils` and `uutils-findutils` reduce GNU dependency while keeping command compatibility.
 - `rg-grep` provides fast `grep`-style usage through a shim.
 - `iputils` and `iproute2` are omitted for systems that do not need those networking tools.
 - `systemd-sysvcompat` is omitted for systems that use `systemctl` directly.
@@ -43,15 +43,7 @@ modern shim packages, removes unused defaults, and keeps `base` compatibility vi
 >
 > ### Compatibility Notes
 >
-> Install the original packages explicitly if your setup depends on exact behavior:
->
-> - `coreutils`
-> - `findutils`
-> - `grep`
-> - `iputils`
-> - `iproute2`
-> - `systemd-sysvcompat`
-> - `licenses`
+> Install the original packages explicitly if your setup depends on exact behavior
 
 #### Scope and Non-Goals
 
