@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ "$#" -eq 0 ] || [ -z "$1" ]; then
+	exit 1
+fi
+exit_code=0
+for cmd in "$@"; do
+	command -v "$cmd" || exit_code=1
+done
+exit $exit_code
