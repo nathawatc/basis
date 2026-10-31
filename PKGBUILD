@@ -1,4 +1,5 @@
-# Maintainer: nathawat <nathawat[at]noreply[dot]codeberg[dot]org>
+# Maintainer: Scott <158021536+nathawatc@users.noreply.github.com>
+# shellcheck shell=bash disable=SC2034,SC2154,SC2164
 
 pkgbase=basis
 pkgname=(
@@ -6,8 +7,8 @@ pkgname=(
 	'basis-devel'
 )
 pkgver=1
-pkgrel=1
-url='https://codeberg.org/nathawat/basis'
+pkgrel=2
+url='https://github.com/nathawatc/basis'
 arch=('any')
 license=('Unlicense')
 source=('which')
@@ -105,7 +106,7 @@ package_basis() {
 		pkg=${dep%%[<>=]*}
 
 		[[ ${pkg} == uutils-* ]] || continue
-		pacman -Qq "${pkg}" >/dev/null 2>&1 || continue
+		pacman -Qq "${pkg}" > /dev/null 2>&1 || continue
 
 		while IFS= read -r file; do
 			[[ ${file} == /usr/bin/uu-* || ${file} == /usr/bin/uutils-* ]] || continue
@@ -119,11 +120,11 @@ package_basis() {
 			[[ ${cmd} == coreutils || ${cmd} == findutils ]] && continue
 
 			target="/usr/bin/${cmd}"
-			owner=$(pacman -Qqo "${target}" 2>/dev/null || true)
+			owner=$(pacman -Qqo "${target}" 2> /dev/null || true)
 
 			# Only replace paths owned by packages this package conflicts with.
 			# Skip paths owned by util-linux, procps-ng, etc.
-			if [[ -n ${owner} && ${owner} != "${pkgname}" ]]; then
+			if [[ -n ${owner} && ${owner} != "${pkgbase}" ]]; then
 				case " ${conflicts[*]} " in
 					*" ${owner} "*)
 						;;
@@ -145,7 +146,7 @@ package_basis() {
 		done < <(pacman -Qql "${pkg}" | LC_ALL=C sort)
 	done
 
-	if (( links == 0 )); then
+	if ((links == 0)); then
 		printf 'error: no uutils command symlinks generated\n' >&2
 		return 1
 	fi
@@ -183,8 +184,8 @@ package_basis-devel() {
 	raw=$(diffutils 2>&1 || :)
 
 	mapfile -t cmds < <(
-		printf '%s\n' "${raw}" |
-			awk '
+		printf '%s\n' "${raw}" \
+			| awk '
 				/^Currently defined functions:/ {
 					found = 1
 					next
@@ -203,8 +204,8 @@ package_basis-devel() {
 				found && seen && !NF {
 					exit
 				}
-			' |
-			LC_ALL=C sort -u
+			' \
+			| LC_ALL=C sort -u
 	)
 
 	if ((${#cmds[@]} == 0)); then

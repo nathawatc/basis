@@ -1,7 +1,7 @@
 pkgbase = basis
 	pkgver = 1
-	pkgrel = 1
-	url = https://codeberg.org/nathawat/basis
+	pkgrel = 2
+	url = https://github.com/nathawatc/basis
 	arch = any
 	license = Unlicense
 	makedepends = uutils-coreutils
